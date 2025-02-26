@@ -1,6 +1,7 @@
 #include <stdio.h>
+#include "functions.h"
 
 int main(void) {
-    printf("Hello, World!\n");
+    printf("%d",sum(5,6));
     return 0;
 }
