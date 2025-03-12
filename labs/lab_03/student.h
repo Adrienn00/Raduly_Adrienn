@@ -26,4 +26,7 @@ void allocateMemoryForStudents(Student_t **dpStudents, int numberOfStudents);
 void readAllStudentsDetails(Student_t **dpStudents, int *numberOfStudents, const char *input);
 void printAllStudents(Student_t *pStudents, int numberOfStudents, const char *destination);
 void calculatePercentageBoysGirls (Student_t **dpStudents, int numberOfStudents);
+void printStudentsFromSpecificCity(Student_t *pStudents, int numberOfStudents, const char *city);
+void findStudentByNeptunCode(Student_t *pStudents, int numberOfStudents, const char *neptunCode);
+void sortStudentsByName(Student_t *pStudents, int numberOfStudents, const char *destination);
 #endif //LAB_03_STUDENT_H

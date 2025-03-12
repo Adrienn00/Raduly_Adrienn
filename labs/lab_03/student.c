@@ -5,7 +5,7 @@
 #include "student.h"
 
 void readStudentDetails(Student_t *pStudent) {
-    scanf(" %[^\n]", pStudent->name);
+    scanf("%[^\n]", pStudent->name);
     scanf("%s", pStudent->neptunCode);
     scanf("%s", pStudent->birthPlace);
     scanf("%d%d%d", &pStudent->birthDate.year, &pStudent->birthDate.month, &pStudent->birthDate.day );
@@ -72,6 +72,56 @@ void calculatePercentageBoysGirls(Student_t **dpStudents, int numberOfStudents) 
     printf("Boys percentage: %2.2f\n",boysPercentage);
     printf("Girls percentage: %2.2f\n",girlsPercentage);
 }
+
+void printStudentsFromSpecificCity(Student_t *pStudents, int numberOfStudents, const char *city) {
+    int db = 0;
+    for (int i = 0; i < numberOfStudents; ++i) {
+        if(strcmp(pStudents[i].birthPlace, city) == 0){
+            printStudent(pStudents[i]);
+            db++;
+        }
+    }
+    if( db == 0){
+        printf("Nincs ilyen helyen szuletet diak");
+    }
+}
+
+void findStudentByNeptunCode(Student_t *pStudents, int numberOfStudents, const char *neptunCode) {
+    int db = 0;
+    for (int i = 0; i < numberOfStudents; ++i) {
+        if (strcmp(pStudents[i].neptunCode, neptunCode) == 0) {
+            printStudent(pStudents[i]);
+            db++;
+        }
+    }
+    if (db == 0){
+        printf("nincs ilyen diak");
+    }
+}
+
+void sortStudentsByName(Student_t *pStudents, int numberOfStudents, const char *destination) {
+    for (int i = 0; i < numberOfStudents - 1; ++i) {
+        for (int j = 0; j < numberOfStudents - i - 1; ++j) {
+            if (strcmp(pStudents[j].name, pStudents[j + 1].name) > 0) {
+                Student_t temp = pStudents[j];
+                pStudents[j] = pStudents[j + 1];
+                pStudents[j + 1] = temp;
+            }
+        }
+    }
+
+    if (!freopen(destination, "w", stdout)) {
+        printf("Error opening file for writing.\n");
+        return;
+    }
+
+    for (int i = 0; i < numberOfStudents; ++i) {
+        printStudent(pStudents[i]);
+    }
+
+    freopen("CON", "w", stdout);
+}
+
 
 
 
