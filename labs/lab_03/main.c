@@ -23,10 +23,11 @@ int main(void) {
     Student_t *students;
     int numberOfStudents;
     readAllStudentsDetails(&students,&numberOfStudents,"student.txt");
-   /* printAllStudents(students,numberOfStudents,NULL);
-    calculatePercentageBoysGirls(&students,numberOfStudents);
+   printAllStudents(students,numberOfStudents,NULL);
+    /*calculatePercentageBoysGirls(&students,numberOfStudents);
     printStudentsFromSpecificCity(students,numberOfStudents,"Budapest");
-    findStudentByNeptunCode(students,numberOfStudents,"QSTRG9");*/
-    sortStudentsByName(students,numberOfStudents,"student.txt");
+    findStudentByNeptunCode(students,numberOfStudents,"QSTRG9");
+    sortStudentsByName(students,numberOfStudents,"destination.txt");*/
+    sortStudentsByAgeAndExam(students,numberOfStudents,"birth_exam_order.txt");
     return 0;
 }
